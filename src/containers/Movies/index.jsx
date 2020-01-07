@@ -142,9 +142,8 @@ class Movies extends React.Component {
                 width: "100%"
               }}
             >
-              <div>loading......</div>
-              {/* <Rect height={"270"} width={"190"} mb={6} />
-              <Rect height={"20"} width={"190"} /> */}
+              <Rect height={"260"} width={"180"} />
+              <Rect height={"30"} width={"180"} mt={"0.25"} />
             </div>
           )}
         </div>
@@ -178,7 +177,7 @@ class Movies extends React.Component {
     this._scrollTop = scrollTop;
 
     const { overscanByPixels } = this.state;
-
+    console.log("auto sizer", this.props.movies.length);
     return (
       <AutoSizer
         disableHeight
@@ -192,6 +191,9 @@ class Movies extends React.Component {
     );
   }
 
+  _listRowCount = () =>
+    this.state.hasMore ? this.props.movies.length + 1 : 1000;
+
   _renderMasonry({ width }) {
     const { movies } = this.props;
     this._width = width;
@@ -200,11 +202,11 @@ class Movies extends React.Component {
     this._initCellPositioner();
 
     const { height, overscanByPixels, windowScrollerEnabled } = this.state;
-
+    console.log("movies length", movies.length);
     return (
       <Masonry
         autoHeight={windowScrollerEnabled}
-        cellCount={movies.length || 2000}
+        cellCount={movies.length || 86}
         onCellsRendered={data => this._loadMoreCells(data)}
         cellMeasurerCache={this._cache}
         cellPositioner={this._cellPositioner}

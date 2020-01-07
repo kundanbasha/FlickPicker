@@ -9,13 +9,13 @@ import {
   Row,
   MoreInfo,
   Column,
-  Poster,
   Overview,
   Content,
   BackButton
 } from "./movie-styled-components";
 import { fetchMovieDetails } from "../../redux/MovieDetails/actions";
 import Flex from "../../components/Flex";
+import Rect from "../../components/Rect";
 
 const MovieDetails = ({ match, history }) => {
   const dispatch = useDispatch();
@@ -45,11 +45,6 @@ const MovieDetails = ({ match, history }) => {
         <BackButton onClick={() => history.push("/movies")}>
           <FaArrowLeft color="#fff" />
         </BackButton>
-        {/* <Poster poster={movie.poster_path}></Poster> */}
-        {/* <img
-          src={`https://image.tmdb.org/t/p/original${movie.poster_path}`}
-          height={"600px"}
-        /> */}
         <Content column>
           <Title>{movie.title}</Title>
           <Row mt="0.5">
@@ -110,18 +105,28 @@ const MovieDetails = ({ match, history }) => {
       </Wrap>
     );
 
-  return <div>loading component....</div>;
+  return (
+    <Wrap column pl="1.5" pt="4">
+      <Rect height={64} width={window.innerWidth / 2} />
+      <Rect height={24} width={window.innerWidth / 2} mt="1" />
+      <Rect height={96} width={window.innerWidth / 2} mt="1" />
+      <Wrap>
+        <Column column mt="1.5">
+          <Rect height={24} width={240} mt="1" />
+          <Rect height={200} width={240} mt="1" />
+          <Rect height={100} width={240} mt="1" />
+        </Column>
+        <Column column mt="1.5" ml="2">
+          <Rect height={24} width={240} mt="1" />
+          <Rect height={64} width={240} mt="1" />
+        </Column>
+        <Column column mt="1.5" ml="2">
+          <Rect height={24} width={240} mt="1" />
+          <Rect height={64} width={240} mt="1" />
+        </Column>
+      </Wrap>
+    </Wrap>
+  );
 };
 
 export default React.memo(MovieDetails);
-
-{
-  /* <Row mt="0.5">
-          <PrimaryText>Starring:</PrimaryText>
-          <PrimaryText>Alam, basha, arshad, asif</PrimaryText>
-        </Row>
-        <Row>
-          <PrimaryText>Genres:</PrimaryText>
-          <PrimaryText>Alam, basha, arshad, asif</PrimaryText>
-        </Row> */
-}
