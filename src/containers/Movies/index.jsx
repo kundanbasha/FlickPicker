@@ -206,7 +206,7 @@ class Movies extends React.Component {
     return (
       <Masonry
         autoHeight={windowScrollerEnabled}
-        cellCount={movies.length || 86}
+        cellCount={movies.length || 10000}
         onCellsRendered={data => this._loadMoreCells(data)}
         cellMeasurerCache={this._cache}
         cellPositioner={this._cellPositioner}
