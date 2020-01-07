@@ -15,6 +15,7 @@ import Header from "../../components/Header";
 import { Wrap, MarginWrap } from "./movies-styled-components";
 
 import { fetchMovies } from "../../redux/Movies/actions";
+import Rect from "../../components/Rect";
 
 class Movies extends React.Component {
   constructor(props, context) {
@@ -135,12 +136,15 @@ class Movies extends React.Component {
             </React.Fragment>
           ) : (
             <div
+              column
               style={{
                 height: "300px",
                 width: "100%"
               }}
             >
-              loading.........
+              <div>loading......</div>
+              {/* <Rect height={"270"} width={"190"} mb={6} />
+              <Rect height={"20"} width={"190"} /> */}
             </div>
           )}
         </div>
@@ -200,7 +204,7 @@ class Movies extends React.Component {
     return (
       <Masonry
         autoHeight={windowScrollerEnabled}
-        cellCount={movies.length || 1000000}
+        cellCount={movies.length || 2000}
         onCellsRendered={data => this._loadMoreCells(data)}
         cellMeasurerCache={this._cache}
         cellPositioner={this._cellPositioner}
