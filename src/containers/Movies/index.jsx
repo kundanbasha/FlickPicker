@@ -26,12 +26,12 @@ class Movies extends React.Component {
 
     this._cache = new CellMeasurerCache({
       defaultHeight: 250,
-      defaultWidth: 190,
+      defaultWidth: window.innerWidth < 400 ? 308 : 190,
       fixedWidth: true
     });
 
     this.state = {
-      columnWidth: 190,
+      columnWidth: window.innerWidth < 400 ? 308 : 190,
       height: window.innerHeight - 76,
       gutterSize: 10,
       overscanByPixels: 0,
@@ -138,12 +138,18 @@ class Movies extends React.Component {
             <div
               column
               style={{
-                height: "300px",
-                width: "100%"
+                height: "300px"
               }}
             >
-              <Rect height={"260"} width={"180"} />
-              <Rect height={"30"} width={"180"} mt={"0.25"} />
+              <Rect
+                height={"260"}
+                width={window.innerWidth < 400 ? 308 : 190}
+              />
+              <Rect
+                height={"30"}
+                width={window.innerWidth < 400 ? 308 : 190}
+                mt={"0.25"}
+              />
             </div>
           )}
         </div>
