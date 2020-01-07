@@ -15,7 +15,7 @@ const moviesReducer = (state = INIT_STATE, action) => {
         ...state,
         isLoaded: false,
         gotError: false,
-        movies: action.page.p == 1 ? [] : state.movies,
+        movies: action.page.p === 1 ? [] : state.movies,
         page: action.page.p
       };
     case MOVIES_FETCHED:

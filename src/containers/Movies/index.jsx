@@ -23,7 +23,7 @@ class Movies extends React.Component {
 
     this._columnCount = 0;
     this._renderInfiniteLoaderRef = null;
-    this.settimeout = 0;
+
     this._cache = new CellMeasurerCache({
       defaultHeight: 250,
       defaultWidth: window.innerWidth < 400 ? 308 : 190,
@@ -56,7 +56,6 @@ class Movies extends React.Component {
     const updatedMovieList = this.props.movies;
 
     if (prevMovieList !== updatedMovieList) {
-      const index = prevMovieList.length;
       this._calculateColumnCount();
       this._resetCellPositioner();
       this._masonry.recomputeCellPositions();
@@ -64,39 +63,15 @@ class Movies extends React.Component {
   }
 
   _loadMoreCells = data => {
-    const { stopIndex, startIndex } = data;
-    const { movies, fetchMoviesAction, page, isLoaded } = this.props;
-    const lastHalf = page * 42 - 24;
+    const { stopIndex } = data;
+    const { movies, fetchMoviesAction, page } = this.props;
     if (stopIndex < movies.length) return;
 
-    this.settimeout = setTimeout(async () => {}, 50);
-    console.log("above check page", page, startIndex, stopIndex, isLoaded);
-    console.log("check page", page, startIndex, stopIndex, isLoaded);
-    // let page = Math.floor(startIndex / 42);
     if (movies.length > 0) fetchMoviesAction({ p: page + 1 });
-
-    // if (isLoaded) {
-    //   // let page = Math.floor(startIndex / 42);
-    //   fetchMoviesAction({ p: page + 1 });
-    //   fetchMoviesAction({ p: page + 2 });
-    // }
-    // if (isLoaded && stopIndex > lastHalf && stopIndex <= movies.length) {
-    //   fetchMoviesAction({ p: page + 1 });
-    // } else if (isLoaded && stopIndex > movies.length) {
-    //   console.log("indexes", startIndex, stopIndex);
-    //   let page = Math.floor(startIndex / 42);
-    //   fetchMoviesAction({ p: page + 1 });
-    // }
   };
 
   render() {
-    const {
-      columnWidth,
-      height,
-      gutterSize,
-      overscanByPixels,
-      windowScrollerEnabled
-    } = this.state;
+    const { height, overscanByPixels, windowScrollerEnabled } = this.state;
 
     let child;
 
@@ -153,7 +128,6 @@ class Movies extends React.Component {
             </React.Fragment>
           ) : (
             <div
-              column
               style={{
                 height: "300px"
               }}
@@ -200,7 +174,6 @@ class Movies extends React.Component {
     this._scrollTop = scrollTop;
 
     const { overscanByPixels } = this.state;
-    console.log("auto sizer", this.props.movies.length);
     return (
       <AutoSizer
         disableHeight
@@ -216,18 +189,6 @@ class Movies extends React.Component {
 
   _listRowCount = () =>
     this.state.hasMore ? this.props.movies.length + 1 : 1000;
-
-  onScrollMethod = e => {
-    const { fetchMoviesAction, page, isLoaded } = this.props;
-    // clearTimeout(this.settimeout);
-    // this.settimeout = setTimeout(async () => {
-    //   if (isLoaded) {
-    //     // let page = Math.floor(startIndex / 42);
-    //     await fetchMoviesAction({ p: page + 1 });
-    //     await fetchMoviesAction({ p: page + 2 });
-    //   }
-    // }, 150);
-  };
 
   _renderMasonry(data, movies) {
     const { width } = data;
@@ -248,7 +209,6 @@ class Movies extends React.Component {
         height={windowScrollerEnabled ? this._height : height}
         overscanByPixels={overscanByPixels}
         ref={this._setMasonryRef}
-        onScroll={this.onScrollMethod}
         scrollTop={this._scrollTop}
         width={width - 24}
       />

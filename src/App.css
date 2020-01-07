@@ -11,6 +11,6 @@
   word-break: break-all;
 }
 
-/* .ReactVirtualized__Masonry {
-  padding: 0 48px;
-} */
+.ReactVirtualized__Masonry {
+  outline: none;
+}
