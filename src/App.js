@@ -14,7 +14,7 @@ const store = configureStore();
 function App() {
   return (
     <Provider store={store}>
-      <Router>
+      <Router basename={process.env.PUBLIC_URL}>
         <Switch>
           <Route path={"/"} component={Movies} exact={true} />
           <Route path={"/movies"} component={Movies} exact={true} />
