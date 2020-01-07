@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/FlickPicker/static/css/main.4698b205.chunk.css",
+    "main.js": "/FlickPicker/static/js/main.193b8ac2.chunk.js",
+    "main.js.map": "/FlickPicker/static/js/main.193b8ac2.chunk.js.map",
+    "runtime-main.js": "/FlickPicker/static/js/runtime-main.168b64dd.js",
+    "runtime-main.js.map": "/FlickPicker/static/js/runtime-main.168b64dd.js.map",
+    "static/js/2.6f5ff138.chunk.js": "/FlickPicker/static/js/2.6f5ff138.chunk.js",
+    "static/js/2.6f5ff138.chunk.js.map": "/FlickPicker/static/js/2.6f5ff138.chunk.js.map",
+    "index.html": "/FlickPicker/index.html",
+    "precache-manifest.9a5446f74bc8449562776bd82ba0337e.js": "/FlickPicker/precache-manifest.9a5446f74bc8449562776bd82ba0337e.js",
+    "service-worker.js": "/FlickPicker/service-worker.js",
+    "static/css/main.4698b205.chunk.css.map": "/FlickPicker/static/css/main.4698b205.chunk.css.map",
+    "static/js/2.6f5ff138.chunk.js.LICENSE": "/FlickPicker/static/js/2.6f5ff138.chunk.js.LICENSE"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.168b64dd.js",
+    "static/js/2.6f5ff138.chunk.js",
+    "static/css/main.4698b205.chunk.css",
+    "static/js/main.193b8ac2.chunk.js"
+  ]
+}
