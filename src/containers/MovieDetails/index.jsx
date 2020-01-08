@@ -107,22 +107,22 @@ const MovieDetails = ({ match, history }) => {
 
   return (
     <Wrap column pl="1.5" pt="4">
-      <Rect height={64} width={window.innerWidth / 2} />
-      <Rect height={24} width={window.innerWidth / 2} mt="1" />
-      <Rect height={96} width={window.innerWidth / 2} mt="1" />
+      <Rect height={64} width={window.innerWidth - 64} />
+      <Rect height={24} width={window.innerWidth - 64} mt="1" />
+      <Rect height={96} width={window.innerWidth - 64} mt="1" />
       <Wrap>
         <Column column mt="1.5">
-          <Rect height={24} width={240} mt="1" />
-          <Rect height={200} width={240} mt="1" />
-          <Rect height={100} width={240} mt="1" />
+          <Rect height={24} width={300} mt="1" />
+          <Rect height={200} width={300} mt="1" />
+          <Rect height={100} width={300} mt="1" />
         </Column>
         <Column column mt="1.5" ml="2">
-          <Rect height={24} width={240} mt="1" />
-          <Rect height={64} width={240} mt="1" />
+          <Rect height={24} width={300} mt="1" />
+          <Rect height={64} width={300} mt="1" />
         </Column>
         <Column column mt="1.5" ml="2">
-          <Rect height={24} width={240} mt="1" />
-          <Rect height={64} width={240} mt="1" />
+          <Rect height={24} width={300} mt="1" />
+          <Rect height={64} width={300} mt="1" />
         </Column>
       </Wrap>
     </Wrap>
